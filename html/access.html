@@ -19,36 +19,85 @@
             <h2 id="username"></h2>
         </div>
 
-        <div class="story-container">
-            <p>Story goes here</p>
-        </div>
-
-        <div class="content">
-            <div class="comments">
-                <div class="comment-container">
-                <h3>Comment</h3>
-                    <div class="comment">
-                        <input type="text" class="comment-input" placeholder="Add your comment...">
-
-                        <button class="comment-button">Add Comment</button>
+        <div class="reader-container">
+            <div class="story-container">
+                <p>Story goes here</p>
+            </div>
+    
+            <div class="content">
+                <div class="comments">
+                    <div class="comment-container">
+                    <h3>Comment</h3>
+                        <div class="comment">
+                            <input type="text" class="comment-input" placeholder="Add your comment...">
+    
+                            <button class="comment-button">Add Comment</button>
+                        </div>
+                    </div>
+    
+                    <div class="other-comments-container">
+                        <h3>Other Comments</h3>
+                        <div class="comment">
+                            Other comments go here
+                        </div>
                     </div>
                 </div>
-
-                <div class="other-comments-container">
-                    <h3>Other Comments</h3>
-                    <div class="comment">
-                        Other comments go here
+                <div class="ads">
+                    <div class="ad-container">
+                        <div class="ad">
+                            Ad goes here
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="ads">
-                <div class="ad-container">
-                    <div class="ad">
-                        Ad goes here
+        </div>
+
+        <form action="edit-story-endpoint" method="post" class="author-container">
+        <!-- <div class="author-container"> -->
+            <div class="edit-stories">
+                <div class="edit-story-container">
+                    <h3>Story</h3>
+                    
+                    <div class="edit-story">
+                        <textarea class="story-input" placeholder="Edit your story..."></textarea>
+
                     </div>
                 </div>
             </div>
-        </div>
+    
+            <div class="teasers">
+                <div class="teaser-container">
+                <h3>Teaser</h3>
+                    <div class="tease">
+                        <textarea class="teaser-input" placeholder="Edit your teaser..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="categories">
+                <div class="category-container">
+                <h3>Categories</h3>
+                    <div class="category">
+                        <textarea class="category-input" placeholder="Edit your category..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="titles">
+                <div class="title-container">
+                <h3>Title</h3>
+                    <div class="title">
+                        <textarea class="title-input" placeholder="Edit your title..."></textarea>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+            <div class="submit-button-container">
+                <button type="submit" class="submit-button">Submit</button>
+            </div>
+        </form>
+
+        
         
     </body>
 </html>

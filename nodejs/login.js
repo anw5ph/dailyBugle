@@ -46,7 +46,7 @@ app.post('/', async (request, response) => {
     }
 });
 
-app.post('/getUsername', async (request, response) => {
+app.post('/getUserInfo', async (request, response) => {
     try{
         const {sessionID} = request.body;
         await client.connect();
@@ -54,10 +54,10 @@ app.post('/getUsername', async (request, response) => {
         const session = await usersCollection.findOne({sessionID: sessionID});
 
         if (session) {
-            response.send({'sessionID': session.sessionID, 'username': session.username});
+            response.send({'sessionID': session.sessionID, 'username': session.username, 'role': session.role});
         }
         else {
-            response.send({'sessionID': null, 'username': null});
+            response.send({'sessionID': null, 'username': null, 'role': null});
         }
     }
     catch( error) {

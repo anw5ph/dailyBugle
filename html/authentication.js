@@ -1,6 +1,8 @@
 const endpoint = {};
 endpoint['login'] = 'http://127.0.0.1:8080/api/login';
-endpoint['getUsername'] = 'http://127.0.0.1:8080/api/login/getUsername';
+endpoint['getUserInfo'] = 'http://127.0.0.1:8080/api/login/getUserInfo';
+
+// var isAuthor = false;
   
 // Function to check if the provided username and password match a record in the database
 async function authenticateUser(inputUsername, inputPassword) {
@@ -65,7 +67,7 @@ async function getUsername() {
         if (cookie.indexOf("auth-cookie") == 0) {
             let data = {sessionID: cookie.substring("auth-cookie=".length, cookie.length)};
 
-            let response = await fetch(endpoint['getUsername'], {
+            let response = await fetch(endpoint['getUserInfo'], {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -80,6 +82,16 @@ async function getUsername() {
         
             console.log(response);
             usernameElement.innerHTML = response['username'];
+
+            if (response['role'] == 'author') {
+                document.querySelector('.author-container').style.display = 'block';
+                document.querySelector('.reader-container').style.display = 'none';
+
+            }
+            else if (response['role'] == 'reader'){
+                document.querySelector('.author-container').style.display = 'none';
+                document.querySelector('.reader-container').style.display = 'block';
+            }
         }
     }
 
