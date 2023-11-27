@@ -46,26 +46,27 @@ app.post('/', async (request, response) => {
     }
 });
 
-// app.get('/', async (request, response) => {
-//     try{
-//         await client.connect();
-//         const usersCollection = await client.db('dailyBugle').collection('users')
-//         const session = await usersCollection.findOne({sessionID: request.body.sessionID});
+app.post('/getUsername', async (request, response) => {
+    try{
+        const {sessionID} = request.body;
+        await client.connect();
+        const usersCollection = await client.db('dailyBugle').collection('users')
+        const session = await usersCollection.findOne({sessionID: sessionID});
 
-//         if (session) {
-//             response.send({'sessionID': sessoion.sessionID, 'username': session.username});
-//         }
-//         else {
-//             response.send({'sessionID': null, 'username': null});
-//         }
-//     }
-//     catch( error) {
-//         console.error(error);
-//     }
-//     finally{
-//         client.close();
-//     }
-// });
+        if (session) {
+            response.send({'sessionID': session.sessionID, 'username': session.username});
+        }
+        else {
+            response.send({'sessionID': null, 'username': null});
+        }
+    }
+    catch( error) {
+        console.error(error);
+    }
+    finally{
+        client.close();
+    }
+});
 
 // UPDATE A USER
 app.put('/', async (request, response) => {

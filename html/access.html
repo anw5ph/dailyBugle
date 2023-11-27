@@ -3,17 +3,52 @@
     <head>
         <meta charset="UTF-8">
         <title>Daily Bugle</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="access-styles.css">
         <script src="authentication.js"></script>
 
     </head>
 
-    <body>
+    <body onload="getUsername()">
         <script>
             if (!document.cookie.includes("auth-cookie")) {
                 window.location.replace("./login.html");
             }
         </script>
-        <h1> You now have the ability to comment and edit posts </h1>
+        <div class="header-container">
+            <h1>Welcome to The Daily Bugle</h1>
+            <h2 id="username"></h2>
+        </div>
+
+        <div class="story-container">
+            <p>Story goes here</p>
+        </div>
+
+        <div class="content">
+            <div class="comments">
+                <div class="comment-container">
+                <h3>Comment</h3>
+                    <div class="comment">
+                        <input type="text" class="comment-input" placeholder="Add your comment...">
+
+                        <button class="comment-button">Add Comment</button>
+                    </div>
+                </div>
+
+                <div class="other-comments-container">
+                    <h3>Other Comments</h3>
+                    <div class="comment">
+                        Other comments go here
+                    </div>
+                </div>
+            </div>
+            <div class="ads">
+                <div class="ad-container">
+                    <div class="ad">
+                        Ad goes here
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </body>
 </html>
