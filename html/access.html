@@ -8,7 +8,7 @@
 
     </head>
 
-    <body onload="getUsername()">
+    <body onload="main();">
         <script>
             if (!document.cookie.includes("auth-cookie")) {
                 window.location.replace("./login.html");
@@ -21,45 +21,45 @@
 
         <div class="reader-container">
             <div class="story-container">
-                <p>Story goes here</p>
             </div>
     
             <div class="content">
                 <div class="comments">
                     <div class="comment-container">
                     <h3>Comment</h3>
-                        <div class="comment">
+                        <!-- <div class="comment-input-container">
                             <input type="text" class="comment-input" placeholder="Add your comment...">
     
                             <button class="comment-button">Add Comment</button>
-                        </div>
+                        </div> -->
+                        <form method="post" class="comment-input-container">
+                            <input type="text" class="comment-input" id="comment-input" placeholder="Add your comment..." name="comment">
+                            <button type="submit" class="comment-button" onclick="addComment()">Add Comment</button>
+                        </form>
                     </div>
     
                     <div class="other-comments-container">
                         <h3>Other Comments</h3>
                         <div class="comment">
-                            Other comments go here
                         </div>
                     </div>
                 </div>
                 <div class="ads">
-                    <div class="ad-container">
-                        <div class="ad">
-                            Ad goes here
-                        </div>
+                    <div class="ad-container" onclick="trackAd(true, false);">
                     </div>
                 </div>
             </div>
         </div>
 
-        <form action="edit-story-endpoint" method="post" class="author-container">
+        <form method="post" class="author-container">
         <!-- <div class="author-container"> -->
             <div class="edit-stories">
                 <div class="edit-story-container">
                     <h3>Story</h3>
                     
                     <div class="edit-story">
-                        <textarea class="story-input" placeholder="Edit your story..."></textarea>
+                        
+                        <!-- <textarea class="story-input"></textarea> -->
 
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                 <div class="teaser-container">
                 <h3>Teaser</h3>
                     <div class="tease">
-                        <textarea class="teaser-input" placeholder="Edit your teaser..."></textarea>
+                        <!-- <textarea class="teaser-input" placeholder="Edit your teaser..."></textarea> -->
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                 <div class="category-container">
                 <h3>Categories</h3>
                     <div class="category">
-                        <textarea class="category-input" placeholder="Edit your category..."></textarea>
+                        <!-- <textarea class="category-input" placeholder="Edit your category..."></textarea> -->
                     </div>
                 </div>
             </div>
@@ -87,13 +87,13 @@
                 <div class="title-container">
                 <h3>Title</h3>
                     <div class="title">
-                        <textarea class="title-input" placeholder="Edit your title..."></textarea>
+                        <!-- <textarea class="title-input" placeholder="Edit your title..."></textarea> -->
                     </div>
                 </div>
             </div>
         <!-- </div> -->
             <div class="submit-button-container">
-                <button type="submit" class="submit-button">Submit</button>
+                <button type="submit" class="submit-button" onclick="editStory()">Submit</button>
             </div>
         </form>
 

@@ -1,12 +1,21 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 const {MongoClient} = require("mongodb");
 const uri = "mongodb://127.0.0.1:27017";
 const client = new MongoClient(uri);
 
 let port = 3003;
+app.use(cors());
 app.use(express.json());
+
+app.options('/', cors({
+    origin: ['http://127.0.0.1:8001', 'http://localhost:8001'],
+    credentials: true,
+    methods: ['POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  }));
 
 app.listen(port, () => console.log(`listening on port ${port}`))
 
@@ -47,6 +56,8 @@ app.post('/', async (request, response) => {
 });
 
 app.post('/getUserInfo', async (request, response) => {
+    
+
     try{
         const {sessionID} = request.body;
         await client.connect();
@@ -70,6 +81,7 @@ app.post('/getUserInfo', async (request, response) => {
 
 // UPDATE A USER
 app.put('/', async (request, response) => {
+
 
     try {
         await client.connect();

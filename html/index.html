@@ -5,32 +5,25 @@
     <meta charset="UTF-8">
     <title>Daily Bugle</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="authentication.js"></script>
 </head>
 
-<body>
+<body onload="getArticles(); getAds();">
     <h1>Welcome to The Daily Bugle</h1>
     <!-- Add the login button -->
     <button onclick="redirectToLogin()" class="login-button">Login</button>
 
-    <div class="story-container">
-        <p>Story goes here</p>
+    <div class="story-container" id="story-container">
     </div>
 
     <div class="content">
         <div class="teasers">
             <div class="teaser-container">
-            <h3>Title of Story [i]</h3>
-                <div class="teaser">
-                    Teaser of story [i]
-                    
-                </div>
+            
             </div>
         </div>
-        <div class="ads">
-            <div class="ad-container">
-                <div class="ad">
-                    Ad goes here
-                </div>
+        <div class="ads" >
+            <div class="ad-container" onclick="trackAd();">
             </div>
         </div>
     </div>

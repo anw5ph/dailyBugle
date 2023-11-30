@@ -1,0 +1,7 @@
+FROM node:latest
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY login.js .
+CMD ["node", "login.js"]
+EXPOSE 3003
