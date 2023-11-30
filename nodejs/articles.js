@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 app.options('/', cors({
-    origin: ['http://127.0.0.1:8001', 'http://localhost:8001'],
+    origin: ['http://127.0.0.1:8080', 'http://localhost:8080'],
     credentials: true,
     methods: ['POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
